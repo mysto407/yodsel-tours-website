@@ -29,7 +29,13 @@ const GALLERY_IMAGES_DATA: ImageData[] = [
   { id: 14, src: '/14.jpg', alt: 'River Valley', size: 'big' as const, layer: 'back' as const },
   { id: 15, src: '/15.jpg', alt: 'Sacred Symbols', size: 'small' as const, layer: 'front' as const },
   { id: 16, src: '/16.jpg', alt: 'Mountain Pass', size: 'normal' as const, layer: 'middle' as const },
-  { id: 17, src: '/17.jpg', alt: 'Temple Details', size: 'big' as const, layer: 'back' as const }
+  { id: 17, src: '/17.jpg', alt: 'Temple Details', size: 'big' as const, layer: 'back' as const },
+  { id: 18, src: '/21.jpeg', alt: 'Bhutanese Landscape', size: 'normal' as const, layer: 'front' as const },
+  { id: 19, src: '/22.jpeg', alt: 'Mountain Vista', size: 'big' as const, layer: 'middle' as const },
+  { id: 20, src: '/23.jpeg', alt: 'Cultural Heritage', size: 'small' as const, layer: 'back' as const },
+  { id: 21, src: '/24.jpeg', alt: 'Dzong Architecture', size: 'normal' as const, layer: 'front' as const },
+  { id: 22, src: '/25.jpeg', alt: 'Prayer Flags', size: 'big' as const, layer: 'middle' as const },
+  { id: 23, src: '/26.jpeg', alt: 'Himalayan Serenity', size: 'small' as const, layer: 'back' as const }
 ];
 
 
