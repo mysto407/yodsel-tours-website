@@ -39,3 +39,13 @@ export interface TourDetails {
   importantInfo?: string[];
   options: TourOption[];
 }
+
+export interface Place {
+  id: number;
+  name: string;
+  location: string;
+  description: string;
+  image: string;
+  bestTime: string;
+  category: string;
+}

@@ -4,17 +4,7 @@ import { MapPin, Clock } from 'lucide-react';
 import styles from './MustSeePlaces.module.css';
 import PlaceDetailsModal from './PlaceDetailsModal';
 import { places } from '../data/places';
-import { Destination } from '../types/tour'; // Assuming this is the correct path for the type
-
-interface Place {
-  id: number;
-  name: string;
-  location: string;
-  description: string;
-  image: string;
-  bestTime: string;
-  category: string;
-}
+import { Destination, Place } from '../types/tour';
 
 interface MustSeePlacesProps {
   onPlaceClick?: (place: Place) => void;

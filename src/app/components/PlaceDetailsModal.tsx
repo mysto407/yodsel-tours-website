@@ -4,17 +4,7 @@ import { X, MapPin, Star, Clock, ArrowRight, ChevronDown, ChevronUp } from 'luci
 import styles from './PlaceDetailsModal.module.css';
 import { destinations } from '../data/tours';
 import { placeToursMapping } from '../data/placeToursMapping';
-import { Destination } from '../types/tour'; // Assuming this is the correct path for the type
-
-interface Place {
-  id: number;
-  name: string;
-  location: string;
-  description: string;
-  image: string;
-  bestTime: string;
-  category: string;
-}
+import { Destination, Place } from '../types/tour';
 
 interface PlaceDetailsModalProps {
   place: Place | null;
@@ -61,7 +51,7 @@ const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
 
   return (
     <div className={styles.modalOverlay} onClick={handleBackdropClick}>
-      <div className={styles.modalContent}>
+      <div className={styles.modalContent} role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <button className={styles.closeButton} onClick={onClose} aria-label="Close modal">
           <X size={24} />
         </button>
@@ -83,7 +73,7 @@ const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
 
         <div className={styles.modalBody}>
           <div className={styles.placeInfo}>
-            <h2 className={styles.placeName}>{place.name}</h2>
+            <h2 id="modal-title" className={styles.placeName}>{place.name}</h2>
             
             <div className={styles.placeMetaRow}>
               <div className={styles.metaItem}>

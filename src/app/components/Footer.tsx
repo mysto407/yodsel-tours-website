@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
             
             {/* Contact Info */}
             <div className={styles.contactInfo}>
-              <a href="bhutanyodsel@gmail.com" className={styles.contactItem}>
+              <a href="mailto:bhutanyodsel@gmail.com" className={styles.contactItem}>
                 <Mail size={16} />
                 <span>bhutanyodsel@gmail.com</span>
               </a>
@@ -99,24 +99,10 @@ const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
 
           
 
-          {/* Newsletter & Social */}
+          {/* Social */}
           <div className={styles.footerSection}>
-            <h3 className={styles.footerTitle}>Stay Connected</h3>
-            <p className={styles.newsletterText}>
-              Subscribe to receive exclusive offers and travel tips
-            </p>
-            <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Your email" 
-                className={styles.newsletterInput}
-                aria-label="Email for newsletter"
-              />
-              <button type="submit" className={styles.newsletterButton}>
-                Subscribe
-              </button>
-            </form>
-            
+            <h3 className={styles.footerTitle}>Follow Us</h3>
+
             {/* Social Media */}
             <div className={styles.socialLinks}>
               <a href="https://facebook.com/yodseltours" className={styles.socialLink} aria-label="Facebook">

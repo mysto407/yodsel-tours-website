@@ -13,18 +13,7 @@ import Footer from './components/Footer';
 
 
 import { destinations, tourDetails } from './data/tours';
-import { Destination } from './types/tour';
-
-// Define types for handlers to avoid using 'any'
-interface Place {
-  id: number;
-  name: string;
-  location: string;
-  description: string;
-  image: string;
-  bestTime: string;
-  category: string;
-}
+import { Destination, Place } from './types/tour';
 
 interface FormData {
   name: string;
@@ -122,7 +111,6 @@ const TourismWebsite: React.FC = () => {
 
   // Hero section handlers
   const handleBookClick = () => {
-    console.log('Book button clicked');
     // Scroll to tours section
     const toursSection = document.querySelector('[data-section="tours"]');
     if (toursSection) {
@@ -131,7 +119,6 @@ const TourismWebsite: React.FC = () => {
   };
 
   const handleContactClick = () => {
-    console.log('Contact button clicked');
     // Scroll to contact section
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
@@ -140,29 +127,25 @@ const TourismWebsite: React.FC = () => {
   };
 
   // Footer handlers
-  const handleFooterLinkClick = (link: string) => {
-    console.log(`Footer link clicked: ${link}`);
-    // Implement footer navigation
+  const handleFooterLinkClick = (_link: string) => {
+    // Footer navigation handler
   };
 
   // Must See Places handler
-  const handlePlaceClick = (place: Place) => {
-    console.log('Place clicked:', place);
-    // Implement place detail view if needed
+  const handlePlaceClick = (_place: Place) => {
+    // Place detail view handler
   };
 
   // Handler for when a tour is clicked from the Must See Places modal
   const handleTourClickFromPlace = (destination: Destination) => {
-    console.log('Tour clicked from place modal:', destination);
     // Same behavior as clicking a tour card directly
     setSelectedTour(destination);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Contact form handler
-  const handleContactFormSubmit = (formData: FormData) => {
-    console.log('Contact form submitted:', formData);
-    // Implement form submission logic (e.g., send to API)
+  const handleContactFormSubmit = (_formData: FormData) => {
+    // Form submission handled by ContactSection component
   };
 
 return (

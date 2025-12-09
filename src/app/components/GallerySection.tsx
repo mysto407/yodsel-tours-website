@@ -1,13 +1,9 @@
-// fileName: GallerySection.tsx
 'use client';
 
-// 1. Re-import useEffect
-import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react'; 
+import React, { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './GallerySection.module.css';
 import DynamicBackground from './DynamicBackground';
-
-// ... (interfaces and GALLERY_IMAGES_DATA remain the same) ...
 interface ImageData {
   id: number;
   src: string;
@@ -223,8 +219,6 @@ const galleryImages: ImageData[] = useMemo(() => {
           </div>
         </div>
       </div>
-
-      {/* REMOVED: CTA Section */}
     </section>
   );
 };

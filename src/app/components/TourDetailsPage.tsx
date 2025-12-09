@@ -57,10 +57,12 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmitBooking = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -69,7 +71,7 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'fefe27da-461c-42e5-ba21-adaad11f17b3',
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           subject: `New Booking Request: ${tour.name} - Yodsel Tours`,
           from_name: 'Yodsel Tours Website',
           tour_name: tour.name,
@@ -86,13 +88,13 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
       const result = await response.json();
 
       if (result.success) {
-        alert('Thank you for your booking request! We will contact you shortly.');
-        onBack();
+        setSubmitStatus('success');
+        setTimeout(() => onBack(), 2000);
       } else {
-        alert('Something went wrong. Please try again or contact us directly.');
+        setSubmitStatus('error');
       }
     } catch {
-      alert('Something went wrong. Please try again or contact us directly.');
+      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -420,21 +422,33 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
                   </div>
                 </div>
 
+                {submitStatus === 'success' && (
+                  <div className={styles.successMessage}>
+                    Thank you for your booking request! We will contact you shortly. Redirecting...
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className={styles.errorMessage}>
+                    Something went wrong. Please try again or contact us directly.
+                  </div>
+                )}
+
                 <div className={styles.formActions}>
                   <button
                     type="button"
                     onClick={() => setShowBookingForm(false)}
                     className={styles.formButtonSecondary}
+                    disabled={isSubmitting || submitStatus === 'success'}
                   >
                     Back to Details
                   </button>
                   <button
                     type="submit"
                     className={styles.formButtonPrimary}
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || submitStatus === 'success'}
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
-                    {!isSubmitting && <ArrowRight size={16} />}
+                    {isSubmitting ? 'Submitting...' : submitStatus === 'success' ? 'Sent!' : 'Submit Booking Request'}
+                    {!isSubmitting && submitStatus !== 'success' && <ArrowRight size={16} />}
                   </button>
                 </div>
               </form>
