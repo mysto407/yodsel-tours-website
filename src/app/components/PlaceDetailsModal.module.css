@@ -1,0 +1,445 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: var(--spacing-md);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modalContent {
+    background: linear-gradient( 135deg, rgba(31, 38, 35, 0.98) 0%, rgba(23, 28, 25, 0.98) 100%);
+    border-radius: var(--radius-lg);
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid rgba(189, 65, 12, 0.3);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.closeButton {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    z-index: 10;
+    background: rgba(189, 65, 12, 0.9);
+    border: 1px solid rgba(239, 236, 210, 0.3);
+    border-radius: var(--radius-full);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--color-secondary);
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+}
+
+.closeButton:hover {
+    background: var(--color-primary-hover);
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 4px 12px rgba(189, 65, 12, 0.6);
+}
+
+.modalHeader {
+    position: relative;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .imageContainer {
+        height: 400px;
+    }
+}
+
+.placeImage {
+    transition: transform var(--transition-slow);
+    filter: brightness(0.8);
+}
+
+.modalContent:hover .placeImage {
+    transform: scale(1.05);
+}
+
+.categoryBadge {
+    position: absolute;
+    top: var(--spacing-lg);
+    left: var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: rgba(189, 65, 12, 0.95);
+    color: var(--color-secondary);
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(239, 236, 210, 0.2);
+}
+
+.modalBody {
+    padding: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+    .modalBody {
+        padding: var(--spacing-3xl);
+    }
+}
+
+.placeInfo {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.placeName {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-secondary);
+    margin: 0 0 var(--spacing-lg) 0;
+    line-height: 1.2;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (min-width: 768px) {
+    .placeName {
+        font-size: 2.5rem;
+    }
+}
+
+.placeMetaRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    color: var(--color-accent);
+}
+
+.metaItem svg {
+    color: var(--color-primary);
+}
+
+.starIcon {
+    fill: var(--color-primary);
+}
+
+.descriptionWrapper {
+    margin-top: var(--spacing-lg);
+}
+
+.placeDescription {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(239, 236, 210, 0.9);
+    margin: 0 0 var(--spacing-md) 0;
+    text-align: justify;
+    transition: all var(--transition-normal);
+}
+
+.readMoreButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: transparent;
+    border: 1px solid rgba(189, 65, 12, 0.4);
+    border-radius: var(--radius-full);
+    color: var(--color-primary);
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    margin-top: var(--spacing-sm);
+}
+
+.readMoreButton:hover {
+    background: rgba(189, 65, 12, 0.1);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(189, 65, 12, 0.2);
+}
+
+.readMoreButton svg {
+    transition: transform var(--transition-fast);
+}
+
+.readMoreButton:hover svg {
+    transform: scale(1.2);
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient( 90deg, transparent, rgba(189, 65, 12, 0.3), transparent);
+    margin: var(--spacing-2xl) 0;
+}
+
+.toursSection {
+    margin-top: var(--spacing-2xl);
+}
+
+.toursTitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    margin: 0 0 var(--spacing-sm) 0;
+    letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+    .toursTitle {
+        font-size: 1.75rem;
+    }
+}
+
+.toursSubtitle {
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    margin: 0 0 var(--spacing-xl) 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.toursList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.tourCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    background: linear-gradient( 135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(189, 65, 12, 0.2);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    backdrop-filter: blur(10px);
+}
+
+@media (min-width: 640px) {
+    .tourCard {
+        grid-template-columns: 140px 1fr;
+    }
+}
+
+.tourCard:hover {
+    transform: translateX(8px);
+    border-color: rgba(189, 65, 12, 0.5);
+    background: linear-gradient( 135deg, rgba(189, 65, 12, 0.1) 0%, rgba(189, 65, 12, 0.05) 100%);
+    box-shadow: 0 8px 24px rgba(189, 65, 12, 0.2);
+}
+
+.tourImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .tourImageWrapper {
+        height: 100%;
+        min-height: 140px;
+    }
+}
+
+.tourImage {
+    transition: transform var(--transition-normal);
+    filter: brightness(0.9);
+}
+
+.tourCard:hover .tourImage {
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+
+.tourInfo {
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.tourHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+}
+
+.tourCode {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-xs);
+}
+
+.tourName {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--color-secondary);
+    margin: 0 0 var(--spacing-xs) 0;
+    line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+    .tourName {
+        font-size: 1.125rem;
+    }
+}
+
+.tourCountry {
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tourPrice {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.tourFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tourMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+}
+
+.tourMetaItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.viewTourButton {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: rgba(189, 65, 12, 0.2);
+    border: 1px solid rgba(189, 65, 12, 0.4);
+    border-radius: var(--radius-full);
+    color: var(--color-secondary);
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+}
+
+.viewTourButton:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgba(189, 65, 12, 0.4);
+}
+
+.viewTourButton svg {
+    transition: transform var(--transition-fast);
+}
+
+.viewTourButton:hover svg {
+    transform: translateX(2px);
+}
+
+
+/* Scrollbar styling */
+
+.modalContent::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modalContent::-webkit-scrollbar-track {
+    background: rgba(107, 112, 92, 0.1);
+    border-radius: var(--radius-full);
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+    background: rgba(189, 65, 12, 0.5);
+    border-radius: var(--radius-full);
+}
+
+.modalContent::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+}

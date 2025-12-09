@@ -1,0 +1,193 @@
+/* Variables are now in globals.css */
+
+.heroSection {
+    min-height: 100vh;
+    /* Ensure it doesn't exceed viewport */
+    display: flex;
+    /* Prevent any content from spilling over */
+}
+
+.contentSide {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    /* Reduced from xl */
+    background-color: var(--color-secondary);
+}
+
+@media (min-width: 1024px) {
+    .contentSide {
+        width: 50%;
+        padding: var(--spacing-2xl);
+        /* Reduced from 4xl */
+    }
+}
+
+.contentContainer {
+    max-width: 32rem;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    /* Reduced from xl */
+}
+
+
+/* Mobile optimizations for smaller screens */
+
+@media (max-width: 768px) {
+    .contentContainer {
+        gap: var(--spacing-md);
+        /* Even smaller gap on mobile */
+    }
+    .contentSide {
+        padding: var(--spacing-md);
+        /* Less padding on mobile */
+    }
+    .mainTitle {
+        font-size: 2.5rem;
+        /* Smaller on mobile */
+    }
+}
+
+.headerGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    /* Reduced from sm */
+}
+
+.establishedText {
+    font-size: 0.875rem;
+    font-family: var(--font-accent);
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: var(--spacing-sm);
+    /* Reduced from md */
+}
+
+.mainTitle {
+    font-size: 5rem;
+    /* Reduced from 3.75rem */
+    font-family: var(--font-display);
+    color: var(--color-primary);
+    font-weight: 900;
+    line-height: 0.9;
+    /* Tighter line height */
+    text-align: right;
+}
+
+@media (min-width: 1024px) {
+    .mainTitle {
+        font-size: 5.5rem;
+        /* Reduced from 6rem */
+    }
+}
+
+.descriptionGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    /* Reduced from md */
+}
+
+.description {
+    font-size: 1.1rem;
+    /* Reduced from 1.125rem */
+    font-family: var(--font-accent);
+    color: var(--color-accent);
+    line-height: 1.5;
+    /* Tighter line height */
+    text-align: right;
+}
+
+.statusIndicator {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+}
+
+.statusLine {
+    width: 3rem;
+    height: 1px;
+    background-color: var(--color-primary);
+}
+
+.statusText {
+    font-family: var(--font-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: var(--spacing-sm);
+    /* Reduced from md */
+}
+
+.button {
+    padding: var(--spacing-lg) var(--spacing-lg);
+    font-family: var(--font-accent);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.37), inset 0 1px 0 0 rgba(255, 255, 255, 0.3), 0 1px 0 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+.primaryButton {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.primaryButton:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.secondaryButton {
+    background-color: transparent;
+    color: var(--color-primary);
+    /* border: 2px solid var(--color-primary); */
+}
+
+.secondaryButton:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.visualSide {
+    display: none;
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .visualSide {
+        display: block;
+        width: 50%;
+    }
+}
+
+.heroImage {
+    position: absolute;
+    inset: 0;
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 45deg, rgba(189, 65, 12, 0.1) 0%, rgba(10, 10, 10, 0.3) 100%);
+}

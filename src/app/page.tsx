@@ -1,103 +1,240 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+import React, { useState } from 'react';
+import HeroSection from './components/HeroSection';
+import NavigationMenu from './components/NavigationMenu';
+import DestinationsGrid from './components/DestinationsGrid';
+import AboutSection from './components/AboutSection';
+import MustSeePlaces from './components/MustSeePlaces';
+import GallerySection from './components/GallerySection';
+import ContactSection from './components/ContactSection';
+import TourDetailsPage from './components/TourDetailsPage';
+import Footer from './components/Footer';
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+import { destinations, tourDetails } from './data/tours';
+import { Destination } from './types/tour';
+
+// Define types for handlers to avoid using 'any'
+interface Place {
+  id: number;
+  name: string;
+  location: string;
+  description: string;
+  image: string;
+  bestTime: string;
+  category: string;
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  destination: string;
+  message: string;
+}
+
+const TourismWebsite: React.FC = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const [selectedTour, setSelectedTour] = useState<Destination | null>(null);
+
+
+  // Menu handlers
+  const handleToggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const handleMenuItemClick = (item: string) => {
+    // Close menu first
+    setShowMenu(false);
+    
+    // If we're on a tour details page, go back to main first
+    if (selectedTour) {
+      setSelectedTour(null);
+    }
+    
+    // Small delay to allow page transition before scrolling
+    setTimeout(() => {
+      // Handle navigation based on item
+      switch(item) {
+        case 'HOME':
+          // Scroll to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          break;
+        case 'TOURS':
+          // Scroll to tours section
+          const toursSection = document.querySelector('[data-section="tours"]');
+          if (toursSection) {
+            toursSection.scrollIntoView({ behavior: 'smooth' });
+          }
+          break;
+        case 'ABOUT':
+          // Scroll to about section
+          const aboutSection = document.querySelector('#about');
+          if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          }
+          break;
+        case 'MUST SEE PLACES':
+          // Scroll to must see places section
+          const mustSeePlacesSection = document.querySelector('#must-see-places');
+          if (mustSeePlacesSection) {
+            mustSeePlacesSection.scrollIntoView({ behavior: 'smooth' });
+          }
+          break;
+        case 'CONTACT':
+          // Scroll to contact section
+          const contactSection = document.querySelector('#contact');
+          if (contactSection) {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }
+          break;
+          case 'GALLERY':
+            // Scroll to gallery section
+            const gallerySection = document.querySelector('#gallery-preview');
+            if (gallerySection) {
+              gallerySection.scrollIntoView({ behavior: 'smooth' });
+            }
+            break;
+        default:
+          break;
+      }
+    }, selectedTour ? 100 : 0); // Only delay if we're coming from tour details
+  };
+
+  // Tour handlers
+  const handleDestinationClick = (destination: Destination) => {
+    if (showMenu) return; // Don't open tour details if menu is open
+    setSelectedTour(destination);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleBackToTours = () => {
+    setSelectedTour(null);
+    // Scroll to tours section
+    setTimeout(() => {
+      const toursSection = document.querySelector('[data-section="tours"]');
+      if (toursSection) {
+        toursSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  // Hero section handlers
+  const handleBookClick = () => {
+    console.log('Book button clicked');
+    // Scroll to tours section
+    const toursSection = document.querySelector('[data-section="tours"]');
+    if (toursSection) {
+      toursSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleContactClick = () => {
+    console.log('Contact button clicked');
+    // Scroll to contact section
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Footer handlers
+  const handleFooterLinkClick = (link: string) => {
+    console.log(`Footer link clicked: ${link}`);
+    // Implement footer navigation
+  };
+
+  // Must See Places handler
+  const handlePlaceClick = (place: Place) => {
+    console.log('Place clicked:', place);
+    // Implement place detail view if needed
+  };
+
+  // Handler for when a tour is clicked from the Must See Places modal
+  const handleTourClickFromPlace = (destination: Destination) => {
+    console.log('Tour clicked from place modal:', destination);
+    // Same behavior as clicking a tour card directly
+    setSelectedTour(destination);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Contact form handler
+  const handleContactFormSubmit = (formData: FormData) => {
+    console.log('Contact form submitted:', formData);
+    // Implement form submission logic (e.g., send to API)
+  };
+
+return (
+  <div style={{ 
+    fontFamily: 'var(--font-primary)',
+    backgroundColor: 'var(--color-background)',
+    position: 'relative',
+    width: '100%',
+    overflowX: 'hidden' // Add this back but only here
+  }}>
+
+
+      {/* Navigation Menu - Always visible */}
+      <NavigationMenu 
+        showMenu={showMenu}
+        onToggleMenu={handleToggleMenu}
+        onMenuItemClick={handleMenuItemClick}
+      />
+
+      {/* Conditional Content Based on Selected Tour */}
+      {selectedTour ? (
+        // Tour Details Page
+        <>
+          <TourDetailsPage 
+            tour={selectedTour}
+            tourDetails={tourDetails[selectedTour.tourId]}
+            onBack={handleBackToTours}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Footer onLinkClick={handleFooterLinkClick} />
+        </>
+      ) : (
+        // Main Page Content
+        <>
+          {/* Hero Section */}
+          <HeroSection 
+            onBookClick={handleBookClick}
+            onContactClick={handleContactClick}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+
+          {/* Destinations Grid */}
+          <DestinationsGrid 
+            destinations={destinations}
+            onDestinationClick={handleDestinationClick}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+          {/* About Section */}
+          <AboutSection 
+            onContactClick={handleContactClick}
+          />
+
+          {/* Must See Places Section */}
+          <MustSeePlaces 
+            onPlaceClick={handlePlaceClick}
+            onTourClick={handleTourClickFromPlace}
+          />
+
+          {/* Gallery Section */}
+          <GallerySection />
+
+          {/* Contact Section */}
+          <ContactSection 
+            onSubmit={handleContactFormSubmit}
+          />
+
+          
+
+          {/* Footer */}
+          <Footer onLinkClick={handleFooterLinkClick} />
+        </>
+      )}
     </div>
   );
-}
+};
+
+export default TourismWebsite;

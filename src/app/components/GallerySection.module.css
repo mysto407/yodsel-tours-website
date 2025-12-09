@@ -1,0 +1,404 @@
+/* fileName: GallerySection.module.css */
+
+
+/* Section Container */
+
+.gallerySection {
+    min-height: 100vh;
+    padding: 80px 0;
+    /* Add this */
+    position: relative;
+    width: 100%;
+    /* Add this */
+}
+
+
+/* Header Container */
+
+.headerContainer {
+    max-width: 1440px;
+    /* MODIFIED: Adjusted bottom margin since CTA is removed and we don't need a large gap after the header */
+    margin: 0 auto 80px;
+    padding: 0 40px;
+}
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.titleLabel {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.titleMain {
+    font-family: var(--font-display);
+    margin: 0;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    color: var(--color-secondary, #ff77c6);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+}
+
+.subtitle {
+    margin: 8px 0 0;
+    font-size: 16px;
+    color: var(--color-accent);
+    font-weight: 300;
+}
+
+
+/* Scroll Container */
+
+.scrollContainer {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 40px;
+    cursor: grab;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    scroll-behavior: smooth;
+    max-width: 100%;
+    /* Add this instead of 100vw */
+}
+
+.scrollContainer:active {
+    cursor: grabbing;
+}
+
+
+/* Custom scrollbar for Webkit browsers (Chrome, Safari) */
+
+.scrollContainer::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scrollContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+.scrollContainer::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+
+/* Gallery Layers Container */
+
+.galleryLayers {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* Use a large min-width based on content to ensure full scrollability */
+    min-width: calc(17 * 450px + 17 * 400px);
+    /* 17 images * max-width + 17 gaps - rough calc */
+    min-height: 600px;
+}
+
+.galleryLayer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 300px;
+    padding-left: 40px;
+    padding-right: 40px;
+    pointer-events: none;
+    /* MODIFIED: Use a CSS variable for translateX */
+    /* This allows JS to update --_scroll-x without overwriting translateZ */
+    transform: translateX(var(--_scroll-x, 0px)) translateZ(0);
+}
+
+
+/* Base layer positioning - Adjusted gap in layer positions to align layers better */
+
+.layerBack {
+    left: 400px;
+    top: 0;
+    z-index: 1;
+}
+
+.layerBack .photoItem {
+    /* Use initial opacity for layer */
+    opacity: 0.7;
+}
+
+.layerBack .photoCard {
+    filter: brightness(0.9);
+}
+
+.layerMiddle {
+    left: 150px;
+    top: 80px;
+    z-index: 2;
+}
+
+.layerMiddle .photoItem {
+    /* Use initial opacity for layer */
+    opacity: 0.85;
+}
+
+.layerFront {
+    left: 0;
+    /* Resetting front layer start position for better alignment */
+    top: 160px;
+    z-index: 3;
+}
+
+
+/* Photo Item */
+
+.photoItem {
+    --_scale: 1;
+    /* Default scale for JS to override */
+    --_opacity: 1;
+    /* Default opacity for JS to override */
+    position: relative;
+    flex-shrink: 0;
+    pointer-events: auto;
+    /* Apply common transition for both hover and parallax effects */
+    /* This allows JS to update the variables without overriding the transition property */
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Default parallax transform/opacity */
+    transform: scale(var(--_scale));
+    opacity: var(--_opacity);
+}
+
+.photoItem.hovered {
+    /* !important is used here to ensure hover overrides the JS-set CSS variables */
+    transform: scale(1.08) translateY(-20px) !important;
+    z-index: 1000 !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.photoItem.hovered .photoCard {
+    filter: none !important;
+}
+
+
+/* Size Variants - More varied aspect ratios for collage effect */
+
+.photoItem.small {
+    width: 320px;
+    height: 240px;
+}
+
+.photoItem.normal {
+    width: 380px;
+    height: 500px;
+}
+
+.photoItem.big {
+    width: 450px;
+    height: 320px;
+}
+
+
+/* Photo Card */
+
+.photoCard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Optimizing background: reduced backdrop-filter usage for performance */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.photoItem.hovered .photoCard {
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 100px rgba(120, 119, 198, 0.25), 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Image */
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+}
+
+.image.loaded {
+    opacity: 0.5;
+}
+
+.photoItem.hovered .image {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+
+/* Loading Skeleton - Unchanged, already efficient shimmer animation */
+
+.skeleton {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 90deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+.skeletonShimmer {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+
+/* REMOVED: CTA Section Styles */
+
+
+/* .ctaSection { ... } */
+
+
+/* .ctaContent { ... } */
+
+
+/* .ctaTextGroup { ... } */
+
+
+/* .ctaTitle { ... } */
+
+
+/* .ctaSubtitle { ... } */
+
+
+/* .ctaButton { ... } */
+
+
+/* .ctaButton:hover { ... } */
+
+
+/* .ctaButtonIcon { ... } */
+
+
+/* .ctaButton:hover .ctaButtonIcon { ... } */
+
+
+/* Responsive Design - Adjusted gap and layer positions */
+
+@media (max-width: 768px) {
+    .gallerySection {
+        padding: 60px 0;
+    }
+    .headerContainer {
+        /* MODIFIED: Adjusted bottom margin */
+        margin-bottom: 60px;
+        padding: 0 24px;
+    }
+    .titleMain {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+    .galleryLayers {
+        min-height: 500px;
+        /* Adjusted min-width for smaller screen */
+        min-width: calc(17 * 340px + 17 * 150px);
+    }
+    .galleryLayer {
+        padding-left: 24px;
+        padding-right: 24px;
+        gap: 150px;
+    }
+    .layerBack {
+        left: 300px;
+        /* Adjusted position */
+        top: 0;
+    }
+    .layerMiddle {
+        left: 100px;
+        /* Adjusted position */
+        top: 60px;
+    }
+    .layerFront {
+        left: 0;
+        /* Consistent start */
+        top: 120px;
+    }
+    .photoItem.small {
+        width: 240px;
+        height: 180px;
+    }
+    .photoItem.normal {
+        width: 280px;
+        height: 360px;
+    }
+    .photoItem.big {
+        width: 340px;
+        height: 240px;
+    }
+    /* REMOVED: CTA responsive styles */
+}
+
+@media (max-width: 480px) {
+    .gallerySection {
+        padding: 40px 0;
+        min-height: auto;
+    }
+    .headerContainer {
+        padding: 0 16px;
+        /* MODIFIED: Adjusted bottom margin */
+        margin-bottom: 40px;
+    }
+    .galleryLayers {
+        min-height: 400px;
+        /* Adjusted min-width for smallest screen */
+        min-width: calc(17 * 260px + 17 * 100px);
+    }
+    .galleryLayer {
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 100px;
+    }
+    .layerBack {
+        left: 150px;
+        /* Adjusted position */
+    }
+    .layerMiddle {
+        left: 50px;
+        /* Adjusted position */
+        top: 50px;
+    }
+    .layerFront {
+        left: 0;
+        /* Consistent start */
+        top: 100px;
+    }
+    .photoItem.small {
+        width: 200px;
+        height: 150px;
+    }
+    .photoItem.normal {
+        width: 220px;
+        height: 280px;
+    }
+    .photoItem.big {
+        width: 260px;
+        height: 180px;
+    }
+    /* REMOVED: CTA responsive styles */
+}

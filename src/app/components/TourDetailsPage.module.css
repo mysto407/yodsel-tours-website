@@ -1,0 +1,652 @@
+.pageContainer {
+    min-height: 100vh;
+    background-color: var(--color-secondary);
+}
+
+.header {
+    padding: var(--spacing-xl) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+}
+
+.backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-secondary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-full);
+    color: var(--color-primary);
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    margin-bottom: var(--spacing-lg);
+}
+
+.backButton:hover {
+    background: rgba(189, 65, 12, 0.1);
+    border-color: var(--color-primary-hover);
+    transform: translateX(-4px);
+}
+
+.headerContent {
+    margin-top: var(--spacing-md);
+}
+
+.tourCode {
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.tourTitle {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+@media (min-width: 1024px) {
+    .tourTitle {
+        font-size: 4rem;
+    }
+}
+
+.tourMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    flex-wrap: wrap;
+}
+
+.metaSeparator {
+    color: var(--color-primary);
+}
+
+.mainContent {
+    padding: var(--spacing-3xl) 0;
+    padding-bottom: calc(var(--spacing-3xl) + 100px);
+    /* Add extra padding for sticky booking bar on mobile */
+}
+
+@media (min-width: 768px) {
+    .mainContent {
+        padding-bottom: calc(var(--spacing-3xl) + 120px);
+        /* Slightly more padding on larger screens */
+    }
+}
+
+.contentWrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+}
+
+@media (min-width: 1024px) {
+    .contentWrapper {
+        grid-template-columns: 1fr 400px;
+        gap: var(--spacing-3xl);
+    }
+}
+
+.tourContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.sidebarWrapper {
+    display: block;
+    /* Sticky bar is now at the bottom for all screen sizes */
+}
+
+
+/* Information Sections */
+
+.infoSection {
+    padding: var(--spacing-sm);
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    margin: 0 0 var(--spacing-lg) 0;
+    letter-spacing: 0.05em;
+}
+
+.overviewText {
+    font-size: 1rem;
+    font-family: var(--font-accent);
+    color: var(--color-black);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.inclusionsList,
+.importantList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.inclusionItem,
+.importantItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    font-family: var(--font-accent);
+    font-size: 0.9375rem;
+    color: var(--color-black);
+    line-height: 1.6;
+}
+
+.checkIcon {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-full);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+}
+
+.bulletIcon {
+    flex-shrink: 0;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-top: -0.125rem;
+}
+
+.option {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+
+.optionTitle {
+    font-family: var(--font-accent);
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: var(--spacing-md);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+}
+
+.itinerary {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.dayCard {
+    border: 1px solid rgba(189, 65, 12, 0.6);
+    background: var(--color-primary);
+    transition: all var(--transition-normal);
+    border-radius: var(--radius-md);
+}
+
+.dayCard:hover {
+    border-color: rgba(189, 65, 12, 1);
+    background: rgba(189, 65, 12, 0.95);
+}
+
+.dayContent {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+}
+
+.dayNumber {
+    flex-shrink: 0;
+    width: 5rem;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-blue);
+}
+
+.dayText {
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.dayDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.dayTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+.dayMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    font-size: 0.875rem;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--color-accent);
+}
+
+.metaItem svg {
+    color: var(--color-secondary);
+}
+
+.dayDescription {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--color-accent);
+    margin: var(--spacing-md) 0 0 0;
+}
+
+.highlights {
+    margin-top: var(--spacing-md);
+}
+
+.highlightsLabel {
+    font-family: var(--font-accent);
+    font-size: 0.75rem;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-sm);
+}
+
+.highlightsTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.highlightTag {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: 0.75rem;
+    border: 1px solid var(--color-secondary);
+    color: var(--color-secondary);
+    border-radius: var(--radius-sm);
+}
+
+
+/* Sticky Bottom Booking Bar */
+
+.bookingSection {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-sticky);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-top: 1px solid rgba(189, 65, 12, 0.6);
+    background: linear-gradient(135deg, rgba(189, 65, 12, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    box-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-md);
+    animation: slideUpIn 0.4s ease-out;
+}
+
+@media (min-width: 768px) {
+    .bookingSection {
+        padding: var(--spacing-lg) var(--spacing-xl);
+        gap: var(--spacing-lg);
+    }
+}
+
+@keyframes slideUpIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.bookingInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.bookingTourName {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .bookingTourName {
+        display: block;
+    }
+}
+
+.bookingPriceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mobileBookingSection {
+    display: none;
+}
+
+.bookingPrice {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-secondary);
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .bookingPrice {
+        font-size: 2.5rem;
+    }
+}
+
+.bookingPriceLabel {
+    font-family: var(--font-accent);
+    font-size: 0.65rem;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: var(--spacing-xs);
+}
+
+@media (min-width: 768px) {
+    .bookingPriceLabel {
+        font-size: 0.75rem;
+    }
+}
+
+.bookingButton {
+    padding: var(--spacing-md) var(--spacing-xl);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-family: var(--font-accent);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.bookingButtonText {
+    display: none;
+}
+
+.bookingButtonTextShort {
+    display: inline;
+}
+
+@media (min-width: 640px) {
+    .bookingButtonText {
+        display: inline;
+    }
+    .bookingButtonTextShort {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .bookingButton {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.75rem;
+    }
+}
+
+.bookingButton:hover {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(189, 65, 12, 0.5);
+}
+
+.bookingIcon {
+    transition: transform var(--transition-fast);
+}
+
+.bookingButton:hover .bookingIcon {
+    transform: translateX(var(--spacing-xs));
+}
+
+
+/* Tour Options Selector */
+
+.optionSelector {
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-md);
+}
+
+.optionLabel {
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--spacing-md);
+}
+
+.optionButtons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.optionButton {
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 1px solid var(--color-primary);
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    border-radius: var(--radius-full);
+}
+
+.optionButton:hover {
+    border-color: var(--color-secondary);
+    background: var(--color-blue);
+}
+
+.optionButtonActive {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+
+/* Booking Form */
+
+.bookingFormContainer {
+    padding: var(--spacing-lg);
+}
+
+.bookingFormTitle {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.bookingForm {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .formGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.formGroupFull {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    grid-column: 1 / -1;
+}
+
+.formLabel {
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.formInput,
+.formTextarea {
+    padding: var(--spacing-md);
+    border: 1px solid rgba(189, 65, 12, 0.4);
+    background: var(--color-secondary);
+    color: var(--color-primary);
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+}
+
+.formInput:focus,
+.formTextarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: rgba(189, 65, 12, 0.08);
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+    color: rgba(239, 236, 210, 0.4);
+}
+
+.formTextarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.formActions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.formButtonPrimary,
+.formButtonSecondary {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-family: var(--font-accent);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.formButtonPrimary {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+.formButtonPrimary:hover {
+    background-color: var(--color-primary-hover);
+    transform: scale(1.05);
+}
+
+.formButtonSecondary {
+    background: var(--color-secondary);
+    border: 1px solid rgba(189, 65, 12, 0.4);
+    color: var(--color-primary);
+}
+
+.formButtonSecondary:hover {
+    background: rgba(189, 65, 12, 0.1);
+    border-color: var(--color-primary);
+}
