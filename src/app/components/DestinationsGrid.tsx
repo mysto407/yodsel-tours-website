@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Star, ArrowRight } from 'lucide-react';
+import { ArrowRight, Mountain } from 'lucide-react';
 import { Destination } from '../types/tour';
 import styles from './DestinationsGrid.module.css';
 
@@ -88,48 +88,20 @@ const DestinationsGrid: React.FC<DestinationsGridProps> = ({
                     </div>
                   </div>
 
-                  {/* Specs Grid */}
-                  <div className={styles.specsGrid}>
-                    <div className={styles.specItem}>
-                      <div className={styles.specLabel}>
-                        SEASON
-                      </div>
-                      <div className={styles.specValue}>
-                        {destination.season}
-                      </div>
+                  <div className={styles.tourDetails}>
+                    <div className={styles.highlights}>
+                      {destination.highlights}
                     </div>
-                    <div className={styles.specItem}>
-                      <div className={styles.specLabel}>
-                        DIFFICULTY
-                      </div>
-                      <div className={styles.specValue}>
-                        {destination.difficulty}
-                      </div>
-                    </div>
-                    <div className={styles.specItem}>
-                      <div className={styles.specLabel}>
-                        RATING
-                      </div>
-                      <div className={styles.specValue}>
-                        <Star size={12} className={styles.starIcon} />
-                        {destination.rating}
-                      </div>
+                    <div className={styles.altitude}>
+                      <Mountain size={14} />
+                      <span>Max Altitude: {destination.maxAltitude}</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Price & Action */}
+                {/* Action Button */}
                 <div className={styles.priceSection}>
-                  <div className={styles.priceGroup}>
-                    <div className={styles.priceLabel}>
-                      FROM
-                    </div>
-                    <div className={styles.price}>
-                      {destination.price}
-                    </div>
-                  </div>
-                  
-                  <button 
+                  <button
                     onClick={(e) => handleDeployClick(e, destination)}
                     className={styles.deployButton}
                     aria-label={`View details for ${destination.name}`}

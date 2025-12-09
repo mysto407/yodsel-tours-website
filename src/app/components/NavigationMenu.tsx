@@ -132,7 +132,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
             <div className={styles.menuFooter}>
               <div className={styles.menuFooterLine} />
               <div className={styles.menuFooterText}>
-                EST. 1998 — BHUTAN
+                EST. 1992 — BHUTAN
               </div>
             </div>
           </div>

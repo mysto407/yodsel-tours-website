@@ -312,6 +312,41 @@
     color: var(--color-primary);
 }
 
+.tourDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding-top: var(--spacing-md);
+}
+
+.highlights {
+    font-family: var(--font-accent);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+    .highlights {
+        font-size: 1rem;
+    }
+}
+
+.altitude {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+}
+
+@media (min-width: 768px) {
+    .altitude {
+        font-size: 0.875rem;
+    }
+}
+
 .specsGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

@@ -8,13 +8,11 @@ export interface Destination {
   name: string;
   country: string;
   image: string;
-  price: string;
-  rating: number;
   code: string;
   coordinates: string;
-  season: string;
-  difficulty: string;
   tourId: string;
+  highlights: string;
+  maxAltitude: string;
 }
 
 export interface DayItinerary {

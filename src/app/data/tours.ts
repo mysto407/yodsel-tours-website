@@ -388,51 +388,43 @@ export const destinations: Destination[] = [
     name: "TIGER'S SANCTUARY QUEST",
     country: "Bhutan - 4 Days",
     image: "/1.jpg",
-    price: "$1,299 USD",
-    rating: 4.9,
     code: "TSQ004",
-    coordinates: "27.4712° N, 89.6339° E",
-    season: "Mar - May",
-    difficulty: "Moderate",
-    tourId: "TSQ004"
+    coordinates: "27.4919° N, 89.3633° E",
+    tourId: "TSQ004",
+    highlights: "Tiger's Nest • Paro Dzong • Thimphu",
+    maxAltitude: "3,120m"
   },
   {
     id: 2,
     name: "HIMALAYAN THRONE JOURNEY",
     country: "Bhutan - 6 Days",
     image: "/2.jpg",
-    price: "$1,899 USD",
-    rating: 4.8,
     code: "HTJ006",
-    coordinates: "27.4712° N, 89.6339° E",
-    season: "Year Round",
-    difficulty: "Moderate",
-    tourId: "HTJ006"
+    coordinates: "27.5921° N, 89.8643° E",
+    tourId: "HTJ006",
+    highlights: "Punakha Dzong • Dochula Pass • Tiger's Nest",
+    maxAltitude: "3,120m"
   },
   {
     id: 3,
     name: "FORBIDDEN VALLEY EXPEDITION",
     country: "Bhutan - 10 Days",
     image: "/3.jpg",
-    price: "$2,899 USD",
-    rating: 4.9,
     code: "FVE010",
-    coordinates: "27.4712° N, 89.6339° E",
-    season: "Mar - Oct",
-    difficulty: "Advanced",
-    tourId: "FVE010"
+    coordinates: "27.3875° N, 89.2807° E",
+    tourId: "FVE010",
+    highlights: "Haa Valley • Chele La Pass • Tiger's Nest",
+    maxAltitude: "3,988m"
   },
   {
     id: 4,
     name: "CRANE VALLEY ODYSSEY",
     country: "Bhutan - 10 Days",
     image: "/4.jpg",
-    price: "$3,199 USD",
-    rating: 4.8,
     code: "CVO010",
-    coordinates: "27.4712° N, 89.6339° E",
-    season: "Oct - Mar",
-    difficulty: "Expert",
-    tourId: "CVO010"
+    coordinates: "27.4853° N, 90.1653° E",
+    tourId: "CVO010",
+    highlights: "Phobjikha Valley • Black-necked Cranes • Gangtey",
+    maxAltitude: "3,120m"
   }
 ];

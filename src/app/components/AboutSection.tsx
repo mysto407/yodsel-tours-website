@@ -48,7 +48,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onContactClick }) => {
               </h2>
               <div className={styles.tagline}>
                 <div className={styles.taglineLine}></div>
-                <span>EST. 1998 • BHUTAN</span>
+                <span>EST. 1992 • BHUTAN</span>
               </div>
             </div>
 

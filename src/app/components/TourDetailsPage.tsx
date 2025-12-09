@@ -124,9 +124,14 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
             <div className={styles.tourMeta}>
               <span>{tour.country}</span>
               <span className={styles.metaSeparator}>•</span>
-              <span>{tour.season}</span>
-              <span className={styles.metaSeparator}>•</span>
-              <span>{tour.difficulty}</span>
+              <span>{tour.coordinates}</span>
+            </div>
+            <div className={styles.tourHighlights}>
+              <span>{tour.highlights}</span>
+            </div>
+            <div className={styles.tourAltitude}>
+              <Mountain size={16} />
+              <span>Max Altitude: {tour.maxAltitude}</span>
             </div>
           </div>
         </div>
@@ -281,13 +286,7 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
               {/* Right Column - Sticky Booking Card */}
               <div className={styles.sidebarWrapper}>
                 <div className={styles.bookingSection}>
-                  <div className={styles.bookingPrice}>
-                    {tour.price}
-                  </div>
-                  <div className={styles.bookingPriceLabel}>
-                    Per Person
-                  </div>
-                  <button 
+                  <button
                     className={styles.bookingButton}
                     onClick={handleBookingClick}
                   >
@@ -299,13 +298,7 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
 
               {/* Mobile Booking Card (shows at bottom on mobile) */}
               <div className={styles.mobileBookingSection}>
-                <div className={styles.bookingPrice}>
-                  {tour.price}
-                </div>
-                <div className={styles.bookingPriceLabel}>
-                  Per Person
-                </div>
-                <button 
+                <button
                   className={styles.bookingButton}
                   onClick={handleBookingClick}
                 >

@@ -145,19 +145,9 @@ const PlaceDetailsModal: React.FC<PlaceDetailsModalProps> = ({
                             <h4 className={styles.tourName}>{tour.name}</h4>
                             <div className={styles.tourCountry}>{tour.country}</div>
                           </div>
-                          <div className={styles.tourPrice}>{tour.price}</div>
                         </div>
 
                         <div className={styles.tourFooter}>
-                          <div className={styles.tourMeta}>
-                            <span className={styles.tourMetaItem}>
-                              {tour.difficulty}
-                            </span>
-                            <span className={styles.tourMetaItem}>
-                              {tour.season}
-                            </span>
-                          </div>
-                          
                           <button className={styles.viewTourButton}>
                             View Tour
                             <ArrowRight size={14} />

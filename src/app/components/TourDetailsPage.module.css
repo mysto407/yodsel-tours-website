@@ -81,6 +81,37 @@
     color: var(--color-primary);
 }
 
+.tourHighlights {
+    font-family: var(--font-accent);
+    font-size: 1rem;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+    margin-top: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+    .tourHighlights {
+        font-size: 1.125rem;
+    }
+}
+
+.tourAltitude {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    opacity: 0.8;
+    margin-top: var(--spacing-xs);
+}
+
+@media (min-width: 768px) {
+    .tourAltitude {
+        font-size: 1rem;
+    }
+}
+
 .mainContent {
     padding: var(--spacing-3xl) 0;
     padding-bottom: calc(var(--spacing-3xl) + 100px);

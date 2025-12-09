@@ -58,7 +58,7 @@ const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
                 YODSEL TOURS & TREKS
               </div>
               <div className={styles.versionText}>
-                Est. 1998 | Licensed Tour Operator
+                Est. 1992 | Licensed Tour Operator
               </div>
             </div>
 

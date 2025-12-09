@@ -18,7 +18,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className={styles.contentContainer}>
           <div className={styles.headerGroup}>
             <div className={styles.establishedText}>
-              SINCE 1998
+              SINCE 1992
             </div>
             <h1 className={styles.mainTitle}>
               YODSEL<br/> TOURS<br/>  AND <br/> TREKS
