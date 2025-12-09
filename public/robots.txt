@@ -1,0 +1,16 @@
+# Robots.txt for Yodsel Tours & Treks
+# https://yodselbhutan.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://yodselbhutan.com/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+
+# Block common bot traps and unnecessary paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /404

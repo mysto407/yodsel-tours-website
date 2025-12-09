@@ -10,7 +10,53 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Yodsel Tours & Treks | Bhutan Travel Experts',
-  description: 'Experience the magic of Bhutan with Yodsel Tours & Treks. 33+ years of expertise in crafting unforgettable Himalayan journeys.',
+  description: 'Experience the magic of Bhutan with Yodsel Tours & Treks. 33+ years of expertise in crafting unforgettable Himalayan journeys. Discover ancient monasteries, stunning landscapes, and authentic cultural experiences.',
+  keywords: ['Bhutan tours', 'Bhutan travel', 'Himalayan tours', 'Bhutan trekking', 'Bhutan travel agency', 'Thimphu tours', 'Paro tours', 'Tiger\'s Nest', 'Bhutan vacation'],
+  authors: [{ name: 'Yodsel Tours & Treks' }],
+  creator: 'Yodsel Tours & Treks',
+  publisher: 'Yodsel Tours & Treks',
+  metadataBase: new URL('https://yodselbhutan.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://yodselbhutan.com',
+    siteName: 'Yodsel Tours & Treks',
+    title: 'Yodsel Tours & Treks | Bhutan Travel Experts',
+    description: 'Experience the magic of Bhutan with Yodsel Tours & Treks. 33+ years of expertise in crafting unforgettable Himalayan journeys.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Yodsel Tours & Treks - Bhutan Travel',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Yodsel Tours & Treks | Bhutan Travel Experts',
+    description: 'Experience the magic of Bhutan with Yodsel Tours & Treks. 33+ years of expertise in crafting unforgettable Himalayan journeys.',
+    images: ['/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    // Add your verification codes when you have them
+    // google: 'your-google-verification-code',
+    // yandex: 'your-yandex-verification-code',
+  },
 }
 
 export default function RootLayout({
@@ -38,6 +84,64 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TravelAgency",
+              "name": "Yodsel Tours & Treks",
+              "description": "Experience the magic of Bhutan with Yodsel Tours & Treks. 33+ years of expertise in crafting unforgettable Himalayan journeys.",
+              "url": "https://yodselbhutan.com",
+              "logo": "https://yodselbhutan.com/logo.png",
+              "image": "https://yodselbhutan.com/og-image.jpg",
+              "telephone": "+975-17-127-071",
+              "email": "bhutanyodsel@gmail.com",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Thimphu",
+                "addressCountry": "Bhutan"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "27.4728",
+                "longitude": "89.6393"
+              },
+              "areaServed": {
+                "@type": "Country",
+                "name": "Bhutan"
+              },
+              "priceRange": "$$",
+              "foundingDate": "1991",
+              "sameAs": [
+                "https://www.facebook.com/yodseltours",
+                "https://www.instagram.com/yodseltours"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Bhutan Tour Packages",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "TouristTrip",
+                      "name": "Cultural Tours",
+                      "description": "Explore Bhutan's rich cultural heritage"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "TouristTrip",
+                      "name": "Trekking Adventures",
+                      "description": "Himalayan trekking experiences in Bhutan"
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
         {children}
       </body>
     </html>
