@@ -1,11 +1,17 @@
 import { Inter } from 'next/font/google'
+import type { Metadata } from 'next'
 import './globals.css'
 
 // If you want to use Google Fonts, import them like this:
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-primary'
 })
+
+export const metadata: Metadata = {
+  title: 'Yodsel Tours & Treks | Bhutan Travel Experts',
+  description: 'Experience the magic of Bhutan with Yodsel Tours & Treks. 33+ years of expertise in crafting unforgettable Himalayan journeys.',
+}
 
 export default function RootLayout({
   children,

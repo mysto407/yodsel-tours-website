@@ -32,8 +32,8 @@
 
 @media (min-width: 1024px) {
     .content {
-        grid-template-columns: 2fr 1fr 1.5fr;
-        gap: var(--spacing-4xl);
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: var(--spacing-2xl);
     }
 }
 
