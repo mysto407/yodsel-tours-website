@@ -191,7 +191,7 @@ const galleryImages: ImageData[] = useMemo(() => {
         <div className={styles.headerContent}>
           <span className={styles.titleLabel}>Visual</span>
           <h2 className={styles.titleMain}>GALLERY</h2>
-          <p className={styles.subtitle}>Scroll to explore the collection</p>
+          <p className={styles.subtitle}>Scroll right to explore the collection</p>
         </div>
       </div>
 
