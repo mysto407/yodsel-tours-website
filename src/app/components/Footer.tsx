@@ -9,10 +9,16 @@ interface FooterProps {
   onLinkClick?: (link: string) => void;
 }
 
-const footerLinks = ['ABOUT', 'TOURS', 'GALLERY', 'CONTACT'];
+const footerLinks = ['ABOUT', 'TOURS', 'GALLERY', 'BLOG', 'CONTACT'];
 
 const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
   const handleLinkClick = (link: string) => {
+    // Handle BLOG link separately - navigate to /blog page
+    if (link === 'BLOG') {
+      window.location.href = '/blog';
+      return;
+    }
+
     // Map footer links to section IDs
     const sectionMap: { [key: string]: string } = {
       'ABOUT': 'about',
@@ -22,13 +28,13 @@ const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
     };
 
     const sectionId = sectionMap[link];
-    
+
     if (sectionId) {
-      const element = document.querySelector(`#${sectionId}`) || 
+      const element = document.querySelector(`#${sectionId}`) ||
                      document.querySelector(`[data-section="${sectionId}"]`);
-      
+
       if (element) {
-        element.scrollIntoView({ 
+        element.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });

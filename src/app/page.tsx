@@ -85,6 +85,10 @@ const TourismWebsite: React.FC = () => {
               gallerySection.scrollIntoView({ behavior: 'smooth' });
             }
             break;
+          case 'BLOG':
+            // Navigate to blog page
+            window.location.href = '/blog';
+            break;
         default:
           break;
       }

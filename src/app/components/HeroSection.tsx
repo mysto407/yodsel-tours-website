@@ -69,7 +69,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className={styles.visualSide}>
         <div className={styles.heroImage}>
           <Image
-            src="/5.jpg"
+            src="/bhutan-mountain-landscape-hero.jpg"
             alt="Bhutan mountain landscape with traditional architecture"
             fill
             style={{ objectFit: 'cover' }}

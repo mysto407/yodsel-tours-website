@@ -8,7 +8,7 @@ interface NavigationMenuProps {
   onMenuItemClick: (item: string) => void;
 }
 
-const menuItems = ['HOME', 'TOURS', 'ABOUT', 'MUST SEE PLACES', 'GALLERY', 'CONTACT'];
+const menuItems = ['HOME', 'TOURS', 'ABOUT', 'MUST SEE PLACES', 'GALLERY', 'BLOG', 'CONTACT'];
 
 const NavigationMenu: React.FC<NavigationMenuProps> = ({ 
   showMenu, 
