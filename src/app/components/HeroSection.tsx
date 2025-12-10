@@ -20,9 +20,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             <div className={styles.establishedText}>
               SINCE 1992
             </div>
-            <h1 className={styles.mainTitle}>
-              YODSEL<br/> TOURS<br/>  AND <br/> TREKS
-            </h1>
+            <div className={styles.titleWithLogo}>
+              <div className={styles.logoContainer}>
+                <Image
+                  src="/ytatLogoOG_HD_Orange-removebg-preview.png"
+                  alt="Yodsel Tours and Treks Logo"
+                  width={220}
+                  height={220}
+                  className={styles.heroLogo}
+                />
+              </div>
+              <h1 className={styles.mainTitle}>
+                YODSEL<br/> TOURS<br/>  AND <br/> TREKS
+              </h1>
+            </div>
           </div>
           
           <div className={styles.descriptionGroup}>

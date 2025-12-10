@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
 import styles from './Footer.module.css';
 import DynamicBackground from './DynamicBackground';
@@ -79,6 +80,17 @@ const Footer: React.FC<FooterProps> = ({ onLinkClick }) => {
                 <span>Thimphu, Bhutan</span>
               </div>
             </div>
+          </div>
+
+          {/* Background Logo */}
+          <div className={styles.backgroundLogo}>
+            <Image
+              src="/ytatLogoOG_HD_Cream-removebg-preview.png"
+              alt="Yodsel Tours and Treks Logo"
+              width={300}
+              height={300}
+              className={styles.footerLogo}
+            />
           </div>
 
           {/* Quick Links */}
