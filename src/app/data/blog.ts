@@ -132,7 +132,7 @@ Bhutan offers a world where simplicity is treasured, where happiness is measured
 
 Contact Yodsel Tours & Treks to plan your transformative journey through the Land of the Thunder Dragon.
     `,
-    image: "/phobjikhaReal.jpg",
+    image: "/phobjikhaReal.webp",
     author: "Yodsel Tours & Treks",
     date: "December 2024",
     readTime: "12 min read",
@@ -202,7 +202,7 @@ For budget-conscious travelers, **December to February** offers great value with
 
 Contact Yodsel Tours & Treks to plan your perfect Bhutan trip based on your interests and preferred travel dates.
     `,
-    image: "/bhutan-river-valley.jpg",
+    image: "/bhutan-river-valley.webp",
     author: "Yodsel Tours & Treks",
     date: "December 2024",
     readTime: "5 min read",
@@ -286,7 +286,7 @@ Unlike mass tourism destinations, Bhutan offers an authentic, uncrowded experien
 
 Contact Yodsel Tours & Treks for a personalized quote based on your travel dates, group size, and preferences. We offer packages for all budgets.
     `,
-    image: "/bhutan-himalayan-serenity.jpeg",
+    image: "/bhutan-himalayan-serenity.webp",
     author: "Yodsel Tours & Treks",
     date: "December 2024",
     readTime: "6 min read",
@@ -380,7 +380,7 @@ Your actual visa is stamped in your passport when you arrive at Paro Airport.
 
 Contact us today to start your Bhutan visa application!
     `,
-    image: "/dochula.jpg",
+    image: "/dochula.webp",
     author: "Yodsel Tours & Treks",
     date: "December 2024",
     readTime: "5 min read",

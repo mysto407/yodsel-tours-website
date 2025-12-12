@@ -65,21 +65,40 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Add custom font links here instead of @import */}
+        {/* Preconnect to font CDNs - must be first for early connection */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" 
-          rel="stylesheet" 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.cdnfonts.com" crossOrigin="anonymous" />
+
+        {/* Async font loading script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var fonts = [
+                  'https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap',
+                  'https://api.fontshare.com/v2/css?f[]=quicksand@500&f[]=britney@400&f[]=nippo@400,700&display=swap',
+                  'https://fonts.cdnfonts.com/css/pp-neue-montreal?styles=158867,158871,158869,158866&display=swap'
+                ];
+                fonts.forEach(function(url) {
+                  var link = document.createElement('link');
+                  link.rel = 'stylesheet';
+                  link.href = url;
+                  link.media = 'print';
+                  link.onload = function() { this.media = 'all'; };
+                  document.head.appendChild(link);
+                });
+              })();
+            `
+          }}
         />
-        <link 
-          href="https://api.fontshare.com/v2/css?f[]=quicksand@500&f[]=britney@400&f[]=nippo@400,700&display=swap" 
-          rel="stylesheet" 
-        />
-        <link 
-          href="https://fonts.cdnfonts.com/css/pp-neue-montreal?styles=158867,158871,158869,158866" 
-          rel="stylesheet" 
-        />
+        {/* Fallback for no-JS */}
+        <noscript>
+          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet" />
+          <link href="https://api.fontshare.com/v2/css?f[]=quicksand@500&f[]=britney@400&f[]=nippo@400,700&display=swap" rel="stylesheet" />
+          <link href="https://fonts.cdnfonts.com/css/pp-neue-montreal?styles=158867,158871,158869,158866&display=swap" rel="stylesheet" />
+        </noscript>
       </head>
       <body className={inter.className}>
         <script
