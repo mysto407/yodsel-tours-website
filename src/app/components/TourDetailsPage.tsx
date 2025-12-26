@@ -65,29 +65,26 @@ const TourDetailsPage: React.FC<TourDetailsPageProps> = ({
     setSubmitStatus('idle');
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/booking', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          subject: `New Booking Request: ${tour.name} - Yodsel Tours`,
-          from_name: 'Yodsel Tours Website',
-          tour_name: tour.name,
-          tour_option: tourDetails.options[selectedOption]?.name || 'Standard',
+          tourName: tour.name,
+          tourOption: tourDetails.options[selectedOption]?.name || 'Standard',
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
           travelers: formData.travelers,
-          start_date: formData.startDate,
-          message: formData.message || 'No additional message',
+          startDate: formData.startDate,
+          message: formData.message,
         }),
       });
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.success) {
         setSubmitStatus('success');
         setTimeout(() => onBack(), 2000);
       } else {
