@@ -8,8 +8,10 @@ const inter = Inter({
   variable: '--font-primary'
 })
 
+const currentYear = new Date().getFullYear()
+
 export const metadata: Metadata = {
-  title: 'Bhutan Tour Packages 2025 | Best Bhutan Travel Agency | Yodsel Tours & Treks',
+  title: `Bhutan Tour Packages ${currentYear} | Best Bhutan Travel Agency | Yodsel Tours & Treks`,
   description: 'Book Bhutan tour packages with Yodsel Tours & Treks - 33+ years experience. Explore Tiger\'s Nest, Punakha Dzong, Paro & Thimphu. Cultural tours, trekking adventures & festival tours. Licensed Bhutan travel agency.',
   keywords: ['Bhutan tour package', 'best Bhutan tour package', 'Bhutan travel package', 'best Bhutan travel agency', 'Bhutan trip', 'Bhutan holiday package', 'Bhutan tour from India', 'Bhutan tour from Australia', 'Bhutan tour from UK', 'Bhutan tour from USA', 'Bhutan tour from Europe', 'Bhutan tour from Germany', 'Bhutan tour from France', 'Bhutan tour from Canada', 'Bhutan tour from Singapore', 'Bhutan tour from Thailand', 'Bhutan tour from Malaysia', 'Bhutan tour from Japan', 'Bhutan tour from China', 'Bhutan tour from Netherlands', 'Bhutan tour from Spain', 'Bhutan tour from Italy', 'Bhutan tour from Switzerland', 'Bhutan tour from New Zealand', 'Bhutan tour from UAE', 'Bhutan tour from Dubai', 'Bhutan tour from Nepal', 'Bhutan tour from Bangladesh', 'best Bhutan tours', 'Bhutan tourism', 'visit Bhutan', 'Bhutan vacation package', 'Bhutan travel agency', 'Bhutan trekking', 'best Tiger\'s Nest tour', 'Paro valley tour', 'Thimphu tour', 'Punakha tour', 'best Bhutan cultural tour', 'Bhutan festival tour', 'best Bhutan honeymoon package', 'Bhutan adventure tour', 'Himalayan tours', 'best Bhutan trip package', 'cheap Bhutan tour', 'affordable Bhutan package', 'luxury Bhutan tour', 'Bhutan group tour', 'Bhutan solo travel', 'Bhutan family tour'],
   authors: [{ name: 'Yodsel Tours & Treks' }],
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://yodselbhutan.com',
     siteName: 'Yodsel Tours & Treks',
-    title: 'Bhutan Tour Packages 2025 | Best Bhutan Travel Agency | Yodsel Tours & Treks',
+    title: `Bhutan Tour Packages ${currentYear} | Best Bhutan Travel Agency | Yodsel Tours & Treks`,
     description: 'Book Bhutan tour packages with Yodsel Tours & Treks - 33+ years experience. Cultural tours, trekking & festival tours. Licensed Bhutan travel agency.',
     images: [
       {
@@ -37,7 +39,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bhutan Tour Packages 2025 | Yodsel Tours & Treks',
+    title: `Bhutan Tour Packages ${currentYear} | Yodsel Tours & Treks`,
     description: 'Book Bhutan tour packages with 33+ years experienced travel agency. Explore Tiger\'s Nest, Punakha, Paro & more.',
     images: ['/tigersnest.jpg'],
   },
