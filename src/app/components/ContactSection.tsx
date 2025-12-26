@@ -40,26 +40,23 @@ const ContactSection: React.FC<ContactSectionProps> = ({ onSubmit }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-          subject: `New Inquiry from ${formData.name} - Yodsel Tours`,
-          from_name: 'Yodsel Tours Website',
           name: formData.name,
           email: formData.email,
-          phone: formData.phone || 'Not provided',
-          destination: formData.destination || 'Not specified',
+          phone: formData.phone,
+          destination: formData.destination,
           message: formData.message,
         }),
       });
 
       const result = await response.json();
 
-      if (result.success) {
+      if (response.ok && result.success) {
         setSubmitStatus('success');
         if (onSubmit) {
           onSubmit(formData);
